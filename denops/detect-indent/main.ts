@@ -1,0 +1,10 @@
+import type { Denops } from "https://deno.land/x/denops_std@v3.3.2/mod.ts";
+import { detect } from "./detect.ts";
+import { restore } from "./restore.ts";
+
+export function main(denops: Denops): void {
+  denops.dispatcher = {
+    detect: () => detect(denops),
+    restore: () => restore(denops),
+  };
+}
