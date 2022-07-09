@@ -106,7 +106,7 @@ jobs:
         with:
           neovim: true
           version: ${{ matrix.host-version.nvim }}
-        timeout-minutes: 1
+        timeout-minutes: 5
       - name: Check Neovim
         run: |
           echo "${DENOPS_TEST_NVIM}"
