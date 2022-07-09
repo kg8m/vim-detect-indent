@@ -26,9 +26,9 @@ lint:  ## Lint deno files
 
 .PHONY: type-check
 type-check:  ## Type-check deno files
-	# `deno check` isn't available with older deno.
-	# deno check ${ALL_DENO_FILES}
-	deno test ${ALL_DENO_FILES} --no-run
+	deno check --help > /dev/null 2>&1 && \
+		deno check ${ALL_DENO_FILES} || \
+		deno test ${ALL_DENO_FILES} --no-run
 
 .PHONY: test-deno
 test-deno:  ## Run deno tests
