@@ -22,9 +22,11 @@ jobs:
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v3
+        timeout-minutes: 1
       - uses: denoland/setup-deno@v1
         with:
           deno-version: ${{ matrix.deno-version }}
+        timeout-minutes: 1
       - uses: actions/cache@v3
         with:
           path: .deno
@@ -32,12 +34,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-deno-${{ matrix.deno-version }}-
             ${{ runner.os }}-deno-
+        timeout-minutes: 1
       - name: Check if deno files are formatted
         run: make fmt-check
+        timeout-minutes: 1
       - name: Lint deno files
         run: make lint
+        timeout-minutes: 1
       - name: Type-check deno files
         run: make type-check
+        timeout-minutes: 1
 
   test:
     strategy:
@@ -59,16 +65,20 @@ jobs:
     steps:
       - run: git config --global core.autocrlf false
         if: runner.os == 'Windows'
+        timeout-minutes: 1
       - uses: actions/checkout@v3
         with:
           path: ./repo
+        timeout-minutes: 1
       - uses: actions/checkout@v3
         with:
           repository: vim-denops/denops.vim
           path: ./denops.vim
+        timeout-minutes: 1
       - uses: denoland/setup-deno@v1
         with:
           deno-version: ${{ matrix.deno-version }}
+        timeout-minutes: 1
       - uses: actions/cache@v3
         with:
           path: .deno
@@ -76,29 +86,34 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-deno-${{ matrix.deno-version }}-
             ${{ runner.os }}-deno-
+        timeout-minutes: 1
       - uses: thinca/action-setup-vim@v1
         id: vim
         with:
           vim_type: Vim
           vim_version: ${{ matrix.host-version.vim }}
           download: never
+        timeout-minutes: 1
       - name: Check Vim
         run: |
           echo "${DENOPS_TEST_VIM}"
           "${DENOPS_TEST_VIM}" --version
         env:
           DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable_path }}
+        timeout-minutes: 1
       - uses: rhysd/action-setup-vim@v1
         id: nvim
         with:
           neovim: true
           version: ${{ matrix.host-version.nvim }}
+        timeout-minutes: 1
       - name: Check Neovim
         run: |
           echo "${DENOPS_TEST_NVIM}"
           "${DENOPS_TEST_NVIM}" --version
         env:
           DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable }}
+        timeout-minutes: 1
       - name: Run deno tests
         working-directory: ./repo
         run: make test-deno
@@ -107,4 +122,4 @@ jobs:
           DENOPS_PATH: ../denops.vim
           DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable_path }}
           DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable }}
-        timeout-minutes: 5
+        timeout-minutes: 1
