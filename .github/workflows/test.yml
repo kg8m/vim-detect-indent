@@ -1,0 +1,110 @@
+name: Test
+
+on:
+  - push
+  - pull_request
+  - workflow_dispatch
+
+defaults:
+  run:
+    shell: bash --noprofile --norc -eo pipefail {0}
+
+jobs:
+  check:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner:
+          - ubuntu-latest
+        deno-version:
+          - 1.17.1
+          - 1.x
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: ${{ matrix.deno-version }}
+      - uses: actions/cache@v3
+        with:
+          path: .deno
+          key: ${{ runner.os }}-deno-${{ matrix.deno-version }}-${{ hashFiles('**/*.ts') }}
+          restore-keys: |
+            ${{ runner.os }}-deno-${{ matrix.deno-version }}-
+            ${{ runner.os }}-deno-
+      - name: Check if deno files are formatted
+        run: make fmt-check
+      - name: Lint deno files
+        run: make lint
+      - name: Type-check deno files
+        run: make type-check
+
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner:
+          - windows-latest
+          - macos-latest
+          - ubuntu-latest
+        deno-version:
+          - 1.17.1
+          - 1.x
+        host-version:
+          - vim: v8.2.3452
+            nvim: v0.6.0
+          - vim: head
+            nvim: nightly
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - run: git config --global core.autocrlf false
+        if: runner.os == 'Windows'
+      - uses: actions/checkout@v3
+        with:
+          path: ./repo
+      - uses: actions/checkout@v3
+        with:
+          repository: vim-denops/denops.vim
+          path: ./denops.vim
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: ${{ matrix.deno-version }}
+      - uses: actions/cache@v3
+        with:
+          path: .deno
+          key: ${{ runner.os }}-deno-${{ matrix.deno-version }}-${{ hashFiles('**/*.ts') }}
+          restore-keys: |
+            ${{ runner.os }}-deno-${{ matrix.deno-version }}-
+            ${{ runner.os }}-deno-
+      - uses: thinca/action-setup-vim@v1
+        id: vim
+        with:
+          vim_type: Vim
+          vim_version: ${{ matrix.host-version.vim }}
+          download: never
+      - name: Check Vim
+        run: |
+          echo "${DENOPS_TEST_VIM}"
+          "${DENOPS_TEST_VIM}" --version
+        env:
+          DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable_path }}
+      - uses: rhysd/action-setup-vim@v1
+        id: nvim
+        with:
+          neovim: true
+          version: ${{ matrix.host-version.nvim }}
+      - name: Check Neovim
+        run: |
+          echo "${DENOPS_TEST_NVIM}"
+          "${DENOPS_TEST_NVIM}" --version
+        env:
+          DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable }}
+      - name: Run deno tests
+        working-directory: ./repo
+        run: make test-deno
+        env:
+          DENO_DIR: ../.deno
+          DENOPS_PATH: ../denops.vim
+          DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable_path }}
+          DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable }}
+        timeout-minutes: 5
