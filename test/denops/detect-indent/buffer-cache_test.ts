@@ -30,7 +30,7 @@ test({
     const cache = { expandtab: true, shiftwidth: 2 };
     await vimVars.b.set(denops, "detect_indent", cache);
 
-    await assertRejects(() => bufferCache.get(denops));
+    await assertRejects(async () => await bufferCache.get(denops));
   },
 });
 

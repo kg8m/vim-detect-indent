@@ -4,7 +4,7 @@ import { restore } from "./restore.ts";
 
 export function main(denops: Denops): void {
   denops.dispatcher = {
-    detect: () => detect(denops),
-    restore: () => restore(denops),
+    detect: async () => await detect(denops),
+    restore: async () => await restore(denops),
   };
 }

@@ -9,6 +9,7 @@ let timer: ReturnType<typeof globalThis["setTimeout"]> = -1;
 export function detect(denops: Denops): Promise<void> {
   return new Promise((resolve) => {
     clearTimeout(timer);
+
     timer = setTimeout(async () => {
       if (!await isDetectable(denops)) {
         return;
@@ -17,6 +18,7 @@ export function detect(denops: Denops): Promise<void> {
       const calculated = await calculate(denops);
       await bufferCache.set(denops);
       await options.set(denops, calculated);
+
       resolve();
     }, 200);
   });
