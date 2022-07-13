@@ -11,6 +11,7 @@ defaults:
 
 jobs:
   check:
+    timeout-minutes: 5
     strategy:
       fail-fast: false
       matrix:
@@ -46,6 +47,7 @@ jobs:
         timeout-minutes: 1
 
   test:
+    timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
