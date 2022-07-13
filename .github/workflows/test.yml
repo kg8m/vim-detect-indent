@@ -60,7 +60,7 @@ jobs:
           - vim: v8.2.3452
             nvim: v0.6.0
           - vim: head
-            nvim: nightly
+            nvim: head
     runs-on: ${{ matrix.runner }}
     steps:
       - run: git config --global core.autocrlf false
@@ -90,9 +90,8 @@ jobs:
       - uses: thinca/action-setup-vim@v1
         id: vim
         with:
-          vim_type: Vim
+          vim_type: vim
           vim_version: ${{ matrix.host-version.vim }}
-          download: never
         timeout-minutes: 5
       - name: Check Vim
         run: |
@@ -101,18 +100,18 @@ jobs:
         env:
           DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable_path }}
         timeout-minutes: 1
-      - uses: rhysd/action-setup-vim@v1
+      - uses: thinca/action-setup-vim@v1
         id: nvim
         with:
-          neovim: true
-          version: ${{ matrix.host-version.nvim }}
+          vim_type: neovim
+          vim_version: ${{ matrix.host-version.nvim }}
         timeout-minutes: 5
       - name: Check Neovim
         run: |
           echo "${DENOPS_TEST_NVIM}"
           "${DENOPS_TEST_NVIM}" --version
         env:
-          DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable }}
+          DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable_path }}
         timeout-minutes: 1
       - name: Run deno tests
         working-directory: ./repo
@@ -121,5 +120,5 @@ jobs:
           DENO_DIR: ../.deno
           DENOPS_PATH: ../denops.vim
           DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable_path }}
-          DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable }}
+          DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable_path }}
         timeout-minutes: 1
