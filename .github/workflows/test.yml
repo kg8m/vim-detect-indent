@@ -93,7 +93,7 @@ jobs:
           vim_type: Vim
           vim_version: ${{ matrix.host-version.vim }}
           download: never
-        timeout-minutes: 1
+        timeout-minutes: 5
       - name: Check Vim
         run: |
           echo "${DENOPS_TEST_VIM}"
