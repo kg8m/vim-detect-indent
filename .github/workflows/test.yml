@@ -32,9 +32,6 @@ jobs:
         with:
           path: .deno
           key: ${{ runner.os }}-deno-${{ matrix.deno-version }}-${{ hashFiles('**/*.ts') }}
-          restore-keys: |
-            ${{ runner.os }}-deno-${{ matrix.deno-version }}-
-            ${{ runner.os }}-deno-
         timeout-minutes: 1
       - name: Check if deno files are formatted
         run: make fmt-check
@@ -85,9 +82,6 @@ jobs:
         with:
           path: .deno
           key: ${{ runner.os }}-deno-${{ matrix.deno-version }}-${{ hashFiles('**/*.ts') }}
-          restore-keys: |
-            ${{ runner.os }}-deno-${{ matrix.deno-version }}-
-            ${{ runner.os }}-deno-
         timeout-minutes: 1
       - uses: thinca/action-setup-vim@v1
         id: vim
