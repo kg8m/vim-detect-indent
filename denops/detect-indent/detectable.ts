@@ -1,7 +1,7 @@
-import type { Denops } from "https://deno.land/x/denops_std@v3.5.0/mod.ts";
-import { gather } from "https://deno.land/x/denops_std@v3.5.0/batch/mod.ts";
-import * as vimOptions from "https://deno.land/x/denops_std@v3.5.0/option/mod.ts";
-import * as vimVars from "https://deno.land/x/denops_std@v3.5.0/variable/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v3.6.0/mod.ts";
+import { gather } from "https://deno.land/x/denops_std@v3.6.0/batch/mod.ts";
+import * as vimOptions from "https://deno.land/x/denops_std@v3.6.0/option/mod.ts";
+import * as vimVars from "https://deno.land/x/denops_std@v3.6.0/variable/mod.ts";
 import {
   assertArray,
   assertString,
