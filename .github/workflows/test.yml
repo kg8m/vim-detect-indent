@@ -40,7 +40,7 @@ jobs:
         run: make lint
         timeout-minutes: 1
       - name: Type-check deno files
-        run: make type-check
+        run: make typecheck
         timeout-minutes: 1
 
   test:

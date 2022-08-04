@@ -24,8 +24,8 @@ fmt-check:  ## Check if deno files are formatted
 lint:  ## Lint deno files
 	deno lint ${ALL_DENO_FILES}
 
-.PHONY: type-check
-type-check:  ## Type-check deno files
+.PHONY: typecheck
+typecheck:  ## Type-check deno files
 	deno check --help > /dev/null 2>&1 && \
 		deno check ${ALL_DENO_FILES} || \
 		deno test ${ALL_DENO_FILES} --no-run
@@ -38,11 +38,11 @@ test-deno:  ## Run deno tests
 cache:  ## Cache deno dependencies
 	deno cache ${ALL_DENO_FILES}
 
-.PHONY: deps-update
-deps-update:  ## Update deno dependencies
+.PHONY: update-deps
+update-deps:  ## Update deno dependencies
 	deno run --allow-all https://deno.land/x/udd@0.7.2/main.ts ${ALL_DENO_FILES}
 	make cache
 	make fmt
 
 .PHONY: check-all
-check-all: fmt-check lint type-check test-deno  ## Check files and run tests
+check-all: fmt-check lint typecheck test-deno  ## Check files and run tests
