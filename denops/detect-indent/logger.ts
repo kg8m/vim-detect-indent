@@ -1,5 +1,5 @@
-import type { Denops } from "https://deno.land/x/denops_std@v3.8.0/mod.ts";
-import { batch } from "https://deno.land/x/denops_std@v3.8.0/batch/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v3.8.1/mod.ts";
+import { batch } from "https://deno.land/x/denops_std@v3.8.1/batch/mod.ts";
 
 const HIGHLIGHT_GROUPS_MAP = {
   debug: "Debug",
