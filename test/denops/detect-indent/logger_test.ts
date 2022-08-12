@@ -1,6 +1,6 @@
 // Use denops' test() instead of built-in Deno.test()
 import { test } from "https://deno.land/x/denops_core@v3.1.0/test/mod.ts";
-import { assertMatch } from "https://deno.land/std@0.151.0/testing/asserts.ts";
+import { assertMatch } from "https://deno.land/std@0.152.0/testing/asserts.ts";
 import type { Denops } from "https://deno.land/x/denops_std@v3.8.1/mod.ts";
 import * as vimFuncs from "https://deno.land/x/denops_std@v3.8.1/function/mod.ts";
 import { assertString } from "https://deno.land/x/unknownutil@v2.0.0/mod.ts";
