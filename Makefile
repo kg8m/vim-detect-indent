@@ -46,3 +46,6 @@ update-deps:  ## Update deno dependencies
 
 .PHONY: check-all
 check-all: fmt-check lint typecheck test-deno  ## Check files and run tests
+
+.PHONY: all
+all: update-deps check-all  # Update deps, check files, and run tests
