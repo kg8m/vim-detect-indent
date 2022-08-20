@@ -1,5 +1,6 @@
 import type { Denops } from "https://deno.land/x/denops_std@v3.8.1/mod.ts";
 import { batch } from "https://deno.land/x/denops_std@v3.8.1/batch/mod.ts";
+import * as vimVars from "https://deno.land/x/denops_std@v3.8.1/variable/mod.ts";
 
 const HIGHLIGHT_GROUPS_MAP = {
   debug: "Debug",
@@ -21,6 +22,15 @@ export async function info(
   denops: Denops,
   ...messages: string[]
 ): Promise<void> {
+  const silent = await vimVars.g.get(
+    denops,
+    "detect_indent#silence_information",
+  );
+
+  if (silent) {
+    return;
+  }
+
   await log(denops, "info", ...messages);
 }
 
@@ -28,6 +38,12 @@ export async function warn(
   denops: Denops,
   ...messages: string[]
 ): Promise<void> {
+  const silent = await vimVars.g.get(denops, "detect_indent#silence_warnings");
+
+  if (silent) {
+    return;
+  }
+
   await log(denops, "warn", ...messages);
 }
 

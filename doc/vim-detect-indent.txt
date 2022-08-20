@@ -90,6 +90,22 @@ g:detect_indent#ignore_buftypes
 	Default: `[]`
 	Example: `["nofile", "quickfix", "terminal"]`
 
+                                            *g:detect_indent#silence_warnings*
+g:detect_indent#silence_warnings
+	Whether to silence warning logs or not. For example,
+	|vim-detect-indent| shows warnings if detecting indentation fails. Set
+	this variable `1` (`v:true`) if you don't want to see such warnings.
+	Default: `0` (`v:false`)
+
+                                         *g:detect_indent#silence_information*
+g:detect_indent#silence_information
+	Whether to silence information logs or not. For example,
+	|vim-detect-indent| shows indentation information after detecting
+	indentation. Set this variable `1` (`v:true`) if you don't want to see
+	such information.
+	Default: `0` (`v:false`)
+
+
 ==============================================================================
 Similar Plugins                            *vim-detect-indent-similar-plugins*
 

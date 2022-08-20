@@ -1,6 +1,8 @@
-let g:detect_indent#detect_once      = get(g:, "detect_indent#detect_once", 1)
-let g:detect_indent#ignore_filetypes = get(g:, "detect_indent#ignore_filetypes", [])
-let g:detect_indent#ignore_buftypes  = get(g:, "detect_indent#ignore_buftypes", [])
+let g:detect_indent#detect_once         = get(g:, "detect_indent#detect_once", 1)
+let g:detect_indent#ignore_filetypes    = get(g:, "detect_indent#ignore_filetypes", [])
+let g:detect_indent#ignore_buftypes     = get(g:, "detect_indent#ignore_buftypes", [])
+let g:detect_indent#silence_warnings    = get(g:, "detect_indent#silence_warnings", 0)
+let g:detect_indent#silence_information = get(g:, "detect_indent#silence_information", 0)
 
 let s:PLUGIN_NAME = "detect-indent"
 
