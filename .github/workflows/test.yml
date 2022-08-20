@@ -110,11 +110,14 @@ jobs:
           DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable_path }}
         timeout-minutes: 1
       - name: Run deno tests
-        working-directory: ./repo
-        run: make test-deno
+        uses: nick-fields/retry@v2
+        with:
+          timeout_minutes: 3
+          max_attempts: 3
+          command: cd ./repo && make test-deno
         env:
           DENO_DIR: ../.deno
           DENOPS_PATH: ../denops.vim
           DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable_path }}
           DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable_path }}
-        timeout-minutes: 3
+        timeout-minutes: 10
