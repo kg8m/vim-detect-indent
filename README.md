@@ -16,7 +16,7 @@ Usage
 
 Once you install this plugin, indentation options will be detected automatically.
 
-If you manage its behavior, see [the documentations](doc/vim-detect-indent.txt).
+If you want to customize its behavior, see [the documentation](doc/vim-detect-indent.txt).
 
 
 Similar Plugins / Algorithm
