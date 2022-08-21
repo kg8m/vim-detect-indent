@@ -114,7 +114,9 @@ jobs:
         with:
           timeout_minutes: 3
           max_attempts: 3
-          command: cd ./repo && make test-deno
+          command: |
+            cd ./repo
+            make test-deno
         env:
           DENO_DIR: ../.deno
           DENOPS_PATH: ../denops.vim
