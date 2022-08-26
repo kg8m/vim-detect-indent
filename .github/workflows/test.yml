@@ -44,7 +44,7 @@ jobs:
         timeout-minutes: 1
 
   test:
-    timeout-minutes: 10
+    timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
@@ -88,7 +88,7 @@ jobs:
         with:
           vim_type: vim
           vim_version: ${{ matrix.host-version.vim }}
-        timeout-minutes: 5
+        timeout-minutes: 10
       - name: Check Vim
         run: |
           echo "${DENOPS_TEST_VIM}"
@@ -101,7 +101,7 @@ jobs:
         with:
           vim_type: neovim
           vim_version: ${{ matrix.host-version.nvim }}
-        timeout-minutes: 5
+        timeout-minutes: 10
       - name: Check Neovim
         run: |
           echo "${DENOPS_TEST_NVIM}"
