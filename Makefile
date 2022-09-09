@@ -32,7 +32,9 @@ typecheck:  ## Type-check deno files
 
 .PHONY: test-deno
 test-deno:  ## Run deno tests
-	deno test ${DENO_TEST_FILES} --allow-all --no-check --jobs
+	deno test --parallel --help > /dev/null 2>&1 && \
+		deno test ${DENO_TEST_FILES} --allow-all --no-check --parallel || \
+		deno test ${DENO_TEST_FILES} --allow-all --no-check --jobs
 
 .PHONY: cache
 cache:  ## Cache deno dependencies
