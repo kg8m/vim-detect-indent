@@ -1,8 +1,8 @@
 // Use denops' test() instead of built-in Deno.test()
 import { test } from "https://deno.land/x/denops_core@v3.2.0/test/mod.ts";
-import { assertEquals } from "https://deno.land/std@0.153.0/testing/asserts.ts";
-import type { Denops } from "https://deno.land/x/denops_std@v3.8.1/mod.ts";
-import * as vimFuncs from "https://deno.land/x/denops_std@v3.8.1/function/mod.ts";
+import { assertEquals } from "https://deno.land/std@0.155.0/testing/asserts.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v3.8.2/mod.ts";
+import * as vimFuncs from "https://deno.land/x/denops_std@v3.8.2/function/mod.ts";
 import { calculate } from "../../../denops/detect-indent/calculate.ts";
 import * as testHelper from "../test-helper.ts";
 
