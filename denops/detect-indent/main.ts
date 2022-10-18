@@ -1,4 +1,4 @@
-import type { Denops } from "https://deno.land/x/denops_std@v3.8.2/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v3.9.0/mod.ts";
 import { detect } from "./detect.ts";
 import { restore } from "./restore.ts";
 

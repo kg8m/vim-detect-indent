@@ -1,5 +1,5 @@
-import type { Denops } from "https://deno.land/x/denops_std@v3.8.2/mod.ts";
-import * as vimFuncs from "https://deno.land/x/denops_std@v3.8.2/function/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v3.9.0/mod.ts";
+import * as vimFuncs from "https://deno.land/x/denops_std@v3.9.0/function/mod.ts";
 import { ensureNumber } from "https://deno.land/x/unknownutil@v2.0.0/mod.ts";
 import type { Options } from "./options.ts";
 import * as logger from "./logger.ts";
