@@ -20,7 +20,7 @@ jobs:
         runner:
           - ubuntu-latest
         deno-version:
-          - 1.17.1
+          - 1.28.0
           - 1.x
     runs-on: ${{ matrix.runner }}
     steps:
@@ -55,7 +55,7 @@ jobs:
           - macos-latest
           - ubuntu-latest
         deno-version:
-          - 1.17.1
+          - 1.28.0
           - 1.x
         host-version:
           - vim: v8.2.3452

@@ -1,4 +1,4 @@
-[![Deno 1.17.1+](https://img.shields.io/badge/Deno-Support%201.17.1-yellowgreen.svg?logo=deno)](https://github.com/denoland/deno/tree/v1.17.1)
+[![Deno 1.28.0+](https://img.shields.io/badge/Deno-Support%201.28.0-yellowgreen.svg?logo=deno)](https://github.com/denoland/deno/tree/v1.28.0)
 [![Vim 8.2.3452+](https://img.shields.io/badge/Vim-Support%208.2.3452%2B-yellowgreen.svg?logo=vim)](https://github.com/vim/vim/tree/v8.2.3452)
 [![Neovim 0.6.0+](https://img.shields.io/badge/Neovim-Support%200.6.0-yellowgreen.svg?logo=neovim&logoColor=white)](https://github.com/neovim/neovim/tree/v0.6.0)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -50,6 +50,6 @@ Plug 'kg8m/vim-detect-indent'
 Requirements
 --------------------------------------------------
 
-* Deno v1.17.1+
+* Deno v1.28.0+
 * denops.vim
 * Vim v8.2.3452+ or Neovim v0.6.0+

@@ -142,7 +142,7 @@ For vim-plug (https://github.com/junegunn/vim-plug) users:
 ==============================================================================
 Requirements                                  *vim-detect-indent-requirements*
 
-* Deno v1.17.1+
+* Deno v1.28.0+
 * denops.vim
 * Vim v8.2.3452+ or Neovim v0.6.0+
 
