@@ -1,4 +1,4 @@
-import * as path from "https://deno.land/std@0.163.0/path/mod.ts";
+import * as path from "https://deno.land/std@0.164.0/path/mod.ts";
 
 export const root = {
   toString(): string {
