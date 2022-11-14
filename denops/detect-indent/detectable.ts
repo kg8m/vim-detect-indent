@@ -5,7 +5,7 @@ import * as vimVars from "https://deno.land/x/denops_std@v3.9.1/variable/mod.ts"
 import {
   assertArray,
   assertString,
-} from "https://deno.land/x/unknownutil@v2.0.0/mod.ts";
+} from "https://deno.land/x/unknownutil@v2.1.0/mod.ts";
 import * as bufferCache from "./buffer-cache.ts";
 
 export async function isDetectable(denops: Denops): Promise<boolean> {
