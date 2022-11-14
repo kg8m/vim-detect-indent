@@ -1,9 +1,8 @@
 .DEFAULT_GOAL := help
+HELP_SEPARATOR := ＠
 
 DENO_TEST_FILES := $$(find test/denops -type f -name '*_test.ts')
 ALL_DENO_FILES := $$(find denops test/denops -type f -name '*.ts')
-
-HELP_SEPARATOR := ＠
 
 .PHONY: help
 help:  ## Show help
