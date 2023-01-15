@@ -121,7 +121,7 @@ jobs:
             make test-deno
         env:
           DENO_DIR: ../.deno
-          DENOPS_PATH: ../denops.vim
+          DENOPS_TEST_DENOPS_PATH: ../denops.vim
           DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable_path }}
           DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable_path }}
         timeout-minutes: 10

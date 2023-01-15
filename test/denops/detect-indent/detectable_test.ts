@@ -1,5 +1,5 @@
 // Use denops' test() instead of built-in Deno.test()
-import { test } from "https://deno.land/x/denops_core@v3.2.0/test/mod.ts";
+import { test } from "https://deno.land/x/denops_test@v1.1.0/mod.ts";
 import { assertEquals } from "https://deno.land/std@0.164.0/testing/asserts.ts";
 import type { Denops } from "https://deno.land/x/denops_std@v3.9.1/mod.ts";
 import * as vimOptions from "https://deno.land/x/denops_std@v3.9.1/option/mod.ts";
