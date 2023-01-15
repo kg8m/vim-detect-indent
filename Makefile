@@ -1,8 +1,8 @@
 .DEFAULT_GOAL := help
 HELP_SEPARATOR := ＠
 
-DENO_TEST_FILES := $$(find test/denops -type f -name '*_test.ts')
-ALL_DENO_FILES := $$(find denops test/denops -type f -name '*.ts')
+FIXTURES_DIRPATH := test/fixtures/
+ALL_DENO_FILES := $$(find . -type f -name '*.ts' -not -path '*${FIXTURES_DIRPATH}*')
 
 .PHONY: help
 help:  ## Show help
@@ -12,28 +12,24 @@ help:  ## Show help
 		column -t -s $(HELP_SEPARATOR)
 
 .PHONY: fmt
-fmt:  ## Format deno files
-	deno fmt ${ALL_DENO_FILES}
+fmt:  ## Format files
+	deno fmt --ignore=${FIXTURES_DIRPATH}
 
 .PHONY: fmt-check
-fmt-check:  ## Check if deno files are formatted
-	deno fmt ${ALL_DENO_FILES} --check
+fmt-check:  ## Check if files are formatted
+	deno fmt --ignore=${FIXTURES_DIRPATH} --check
 
 .PHONY: lint
 lint:  ## Lint deno files
-	deno lint ${ALL_DENO_FILES}
+	deno lint --ignore=${FIXTURES_DIRPATH}
 
 .PHONY: typecheck
 typecheck:  ## Type-check deno files
-	deno check --help > /dev/null 2>&1 && \
-		deno check ${ALL_DENO_FILES} || \
-		deno test ${ALL_DENO_FILES} --no-run
+	deno check ${ALL_DENO_FILES}
 
 .PHONY: test-deno
 test-deno:  ## Run deno tests
-	deno test --parallel --help > /dev/null 2>&1 && \
-		deno test ${DENO_TEST_FILES} --allow-all --no-check --parallel || \
-		deno test ${DENO_TEST_FILES} --allow-all --no-check --jobs
+	deno test --allow-all --parallel
 
 .PHONY: cache
 cache:  ## Cache deno dependencies
