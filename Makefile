@@ -37,7 +37,7 @@ cache:  ## Cache deno dependencies
 
 .PHONY: update-deps
 update-deps:  ## Update deno dependencies
-	deno run --allow-all https://deno.land/x/udd@0.7.2/main.ts ${ALL_DENO_FILES}
+	deno run --allow-all https://deno.land/x/udd/main.ts ${ALL_DENO_FILES}
 	make cache
 	make fmt
 
