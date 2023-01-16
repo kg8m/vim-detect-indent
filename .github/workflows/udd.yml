@@ -2,8 +2,8 @@ name: Update Deno Dependencies
 
 on:
   schedule:
-    # Run at 10:00 every Saturday.
-    - cron: "0 10 * * 6"
+    # Run every Saturday at 10:00 JST.
+    - cron: "0 1 * * 6"
 
   # For debug
   workflow_dispatch:
