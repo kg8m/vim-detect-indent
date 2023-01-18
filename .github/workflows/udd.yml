@@ -15,10 +15,14 @@ jobs:
       - uses: actions/checkout@v3
       - uses: denoland/setup-deno@v1
       - name: Update Dependencies
-        id: udd
-        run: make update-deps
+        run: make update-deps > ../output.txt
         env:
           NO_COLOR: 1
+      - name: Read ../output.txt
+        id: read-output
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ../output.txt
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
@@ -30,7 +34,7 @@ jobs:
             ```
 
             ```
-            ${{ steps.udd.outputs.content }}
+            ${{ steps.read-output.outputs.content }}
             ```
           title: Update Deno Dependencies
           body: |
@@ -39,7 +43,7 @@ jobs:
             ```
 
             ```
-            ${{ steps.udd.outputs.content }}
+            ${{ steps.read-output.outputs.content }}
             ```
           branch: update-deno-dependencies
           delete-branch: true
