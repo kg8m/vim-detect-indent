@@ -38,6 +38,8 @@ jobs:
             ```
             ${{ steps.read-output.outputs.content }}
             ```
+          branch: update-deno-dependencies
+          delete-branch: true
           title: Update Deno Dependencies
           body: |
             ```sh
@@ -47,6 +49,4 @@ jobs:
             ```
             ${{ steps.read-output.outputs.content }}
             ```
-          branch: update-deno-dependencies
-          delete-branch: true
           assignees: kg8m
