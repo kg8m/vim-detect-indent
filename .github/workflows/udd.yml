@@ -15,16 +15,32 @@ jobs:
       - uses: actions/checkout@v3
       - uses: denoland/setup-deno@v1
       - name: Update Dependencies
+        id: udd
         run: make update-deps
+        env:
+          NO_COLOR: 1
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          commit-message: Update Deno Dependencies
+          commit-message: |
+            Update Deno dependencies
+
+            ```sh
+            $ make update-deps
+            ```
+
+            ```
+            ${{ steps.udd.outputs.content }}
+            ```
           title: Update Deno Dependencies
-          body: >
-            Automated updates by [deno-udd](https://github.com/hayd/deno-udd) and
-            changes by [create-pull-request](https://github.com/peter-evans/create-pull-request)
-            GitHub action.
+          body: |
+            ```sh
+            $ make update-deps
+            ```
+
+            ```
+            ${{ steps.udd.outputs.content }}
+            ```
           branch: update-deno-dependencies
           delete-branch: true
           assignees: kg8m
