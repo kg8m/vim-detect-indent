@@ -1,8 +1,9 @@
 .DEFAULT_GOAL := help
 HELP_SEPARATOR := ＠
 
+DENO_CACHE_DIRPATH := .deno/
 FIXTURES_DIRPATH := test/fixtures/
-ALL_DENO_FILES := $$(find . -type f -name '*.ts' -not -path '*${FIXTURES_DIRPATH}*')
+ALL_DENO_FILES := $$(find . -type f -name '*.ts' -not -path '*${DENO_CACHE_DIRPATH}*' -not -path '*${FIXTURES_DIRPATH}*')
 
 .PHONY: help
 help:  ## Show help
@@ -13,15 +14,15 @@ help:  ## Show help
 
 .PHONY: fmt
 fmt:  ## Format files
-	deno fmt --ignore=${FIXTURES_DIRPATH}
+	deno fmt --ignore='${DENO_CACHE_DIRPATH},${FIXTURES_DIRPATH}'
 
 .PHONY: fmt-check
 fmt-check:  ## Check if files are formatted
-	deno fmt --ignore=${FIXTURES_DIRPATH} --check
+	deno fmt --ignore='${DENO_CACHE_DIRPATH},${FIXTURES_DIRPATH}' --check
 
 .PHONY: lint
 lint:  ## Lint deno files
-	deno lint --ignore=${FIXTURES_DIRPATH}
+	deno lint --ignore='${DENO_CACHE_DIRPATH},${FIXTURES_DIRPATH}'
 
 .PHONY: typecheck
 typecheck:  ## Type-check deno files
