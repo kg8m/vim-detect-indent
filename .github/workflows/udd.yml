@@ -24,10 +24,15 @@ jobs:
         uses: juliangruber/read-file-action@v1
         with:
           path: ../output.txt
+      # https://github.com/peter-evans/create-pull-request
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
+          # Use my personal access token because the default `GITHUB_TOKEN` prevents other workflows from being
+          # triggered on a pull request creation.
+          # cf. https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow
           token: ${{ secrets.UDD_TOKEN }}
+
           commit-message: |
             Update Deno dependencies
 
