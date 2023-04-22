@@ -1,6 +1,6 @@
-import type { Denops } from "https://deno.land/x/denops_std@v4.1.4/mod.ts";
-import * as vimOptions from "https://deno.land/x/denops_std@v4.1.4/option/mod.ts";
-import * as vimVars from "https://deno.land/x/denops_std@v4.1.4/variable/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v4.1.5/mod.ts";
+import * as vimOptions from "https://deno.land/x/denops_std@v4.1.5/option/mod.ts";
+import * as vimVars from "https://deno.land/x/denops_std@v4.1.5/variable/mod.ts";
 import { assertLike } from "https://deno.land/x/unknownutil@v2.1.0/mod.ts";
 import type { Options } from "./options.ts";
 
