@@ -1,9 +1,9 @@
 // Use denops' test() instead of built-in Deno.test()
 import { test } from "https://deno.land/x/denops_test@v1.1.0/mod.ts";
-import { assertEquals } from "https://deno.land/std@0.183.0/testing/asserts.ts";
-import type { Denops } from "https://deno.land/x/denops_std@v4.1.4/mod.ts";
-import * as vimOptions from "https://deno.land/x/denops_std@v4.1.4/option/mod.ts";
-import * as vimVars from "https://deno.land/x/denops_std@v4.1.4/variable/mod.ts";
+import { assertEquals } from "https://deno.land/std@0.184.0/testing/asserts.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v4.1.5/mod.ts";
+import * as vimOptions from "https://deno.land/x/denops_std@v4.1.5/option/mod.ts";
+import * as vimVars from "https://deno.land/x/denops_std@v4.1.5/variable/mod.ts";
 import * as bufferCache from "../../../denops/detect-indent/buffer-cache.ts";
 import { isDetectable } from "../../../denops/detect-indent/detectable.ts";
 
