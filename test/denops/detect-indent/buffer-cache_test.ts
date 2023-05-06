@@ -3,10 +3,10 @@ import { test } from "https://deno.land/x/denops_test@v1.1.0/mod.ts";
 import {
   assertEquals,
   assertRejects,
-} from "https://deno.land/std@0.185.0/testing/asserts.ts";
-import type { Denops } from "https://deno.land/x/denops_std@v4.1.5/mod.ts";
-import * as vimOptions from "https://deno.land/x/denops_std@v4.1.5/option/mod.ts";
-import * as vimVars from "https://deno.land/x/denops_std@v4.1.5/variable/mod.ts";
+} from "https://deno.land/std@0.186.0/testing/asserts.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v4.1.8/mod.ts";
+import * as vimOptions from "https://deno.land/x/denops_std@v4.1.8/option/mod.ts";
+import * as vimVars from "https://deno.land/x/denops_std@v4.1.8/variable/mod.ts";
 import * as bufferCache from "../../../denops/detect-indent/buffer-cache.ts";
 
 test({
