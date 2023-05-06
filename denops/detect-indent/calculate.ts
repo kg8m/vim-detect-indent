@@ -1,6 +1,5 @@
 import type { Denops } from "https://deno.land/x/denops_std@v4.1.8/mod.ts";
 import * as vimFuncs from "https://deno.land/x/denops_std@v4.1.8/function/mod.ts";
-import { ensureNumber } from "https://deno.land/x/unknownutil@v2.1.0/mod.ts";
 import type { Options } from "./options.ts";
 import * as logger from "./logger.ts";
 import { isEmptyObject } from "./util.ts";
@@ -48,10 +47,7 @@ export async function calculate(denops: Denops): Promise<Options> {
 }
 
 async function indentationWidth(denops: Denops, line: string): Promise<number> {
-  // TODO: fix denops-std's definition (https://github.com/vim-denops/deno-denops-std/issues/44)
-  return ensureNumber(
-    await vimFuncs.strdisplaywidth(denops, indentation(line)),
-  );
+  return await vimFuncs.strdisplaywidth(denops, indentation(line));
 }
 
 function indentation(line: string): string {
