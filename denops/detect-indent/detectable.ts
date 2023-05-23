@@ -1,11 +1,8 @@
-import type { Denops } from "https://deno.land/x/denops_std@v4.3.3/mod.ts";
-import { gather } from "https://deno.land/x/denops_std@v4.3.3/batch/mod.ts";
-import * as vimOptions from "https://deno.land/x/denops_std@v4.3.3/option/mod.ts";
-import * as vimVars from "https://deno.land/x/denops_std@v4.3.3/variable/mod.ts";
-import {
-  assertArray,
-  assertString,
-} from "https://deno.land/x/unknownutil@v2.1.1/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v5.0.0/mod.ts";
+import { collect } from "https://deno.land/x/denops_std@v5.0.0/batch/mod.ts";
+import * as vimOptions from "https://deno.land/x/denops_std@v5.0.0/option/mod.ts";
+import * as vimVars from "https://deno.land/x/denops_std@v5.0.0/variable/mod.ts";
+import { assertArray } from "https://deno.land/x/unknownutil@v2.1.1/mod.ts";
 import * as bufferCache from "./buffer-cache.ts";
 
 export async function isDetectable(denops: Denops): Promise<boolean> {
@@ -17,23 +14,25 @@ export async function isDetectable(denops: Denops): Promise<boolean> {
 }
 
 async function isValidFiletype(denops: Denops): Promise<boolean> {
-  const [ignoreFiletypes, filetype] = await gather(denops, async (denops) => {
-    await vimVars.g.get(denops, "detect_indent#ignore_filetypes");
-    await vimOptions.filetype.get(denops);
+  const [ignoreFiletypes, filetype] = await collect(denops, (denops) => {
+    return [
+      vimVars.g.get(denops, "detect_indent#ignore_filetypes"),
+      vimOptions.filetype.get(denops),
+    ];
   });
   assertArrayOrNull<string>(ignoreFiletypes);
-  assertString(filetype);
 
   return ignoreFiletypes == null || !ignoreFiletypes.includes(filetype);
 }
 
 async function isValidBuftype(denops: Denops): Promise<boolean> {
-  const [ignoreBuftypes, buftype] = await gather(denops, async (denops) => {
-    await vimVars.g.get(denops, "detect_indent#ignore_buftypes");
-    await vimOptions.buftype.get(denops);
+  const [ignoreBuftypes, buftype] = await collect(denops, (denops) => {
+    return [
+      vimVars.g.get(denops, "detect_indent#ignore_buftypes"),
+      vimOptions.buftype.get(denops),
+    ];
   });
   assertArrayOrNull<string>(ignoreBuftypes);
-  assertString(buftype);
 
   return ignoreBuftypes == null || !ignoreBuftypes.includes(buftype);
 }
