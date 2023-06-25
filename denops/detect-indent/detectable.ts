@@ -1,8 +1,9 @@
-import type { Denops } from "https://deno.land/x/denops_std@v5.0.0/mod.ts";
-import { collect } from "https://deno.land/x/denops_std@v5.0.0/batch/mod.ts";
-import * as vimOptions from "https://deno.land/x/denops_std@v5.0.0/option/mod.ts";
-import * as vimVars from "https://deno.land/x/denops_std@v5.0.0/variable/mod.ts";
-import { assertArray } from "https://deno.land/x/unknownutil@v2.1.1/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v5.0.1/mod.ts";
+import { collect } from "https://deno.land/x/denops_std@v5.0.1/batch/mod.ts";
+import * as vimOptions from "https://deno.land/x/denops_std@v5.0.1/option/mod.ts";
+import * as vimVars from "https://deno.land/x/denops_std@v5.0.1/variable/mod.ts";
+import type { Predicate } from "https://deno.land/x/unknownutil@v3.2.0/mod.ts";
+import { assert, is } from "https://deno.land/x/unknownutil@v3.2.0/mod.ts";
 import * as bufferCache from "./buffer-cache.ts";
 
 export async function isDetectable(denops: Denops): Promise<boolean> {
@@ -20,7 +21,7 @@ async function isValidFiletype(denops: Denops): Promise<boolean> {
       vimOptions.filetype.get(denops),
     ];
   });
-  assertArrayOrNull<string>(ignoreFiletypes);
+  assertArrayOrNull(ignoreFiletypes, is.String);
 
   return ignoreFiletypes == null || !ignoreFiletypes.includes(filetype);
 }
@@ -32,7 +33,7 @@ async function isValidBuftype(denops: Denops): Promise<boolean> {
       vimOptions.buftype.get(denops),
     ];
   });
-  assertArrayOrNull<string>(ignoreBuftypes);
+  assertArrayOrNull(ignoreBuftypes, is.String);
 
   return ignoreBuftypes == null || !ignoreBuftypes.includes(buftype);
 }
@@ -46,8 +47,9 @@ async function isValidCount(denops: Denops): Promise<boolean> {
 
 function assertArrayOrNull<T>(
   maybeArray: unknown,
+  pred: Predicate<T>,
 ): asserts maybeArray is T[] | null {
   if (maybeArray !== null) {
-    assertArray<T>(maybeArray);
+    assert(maybeArray, is.ArrayOf(pred));
   }
 }
