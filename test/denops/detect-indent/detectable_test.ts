@@ -1,6 +1,9 @@
 // Use denops' test() instead of built-in Deno.test()
 import { test } from "https://deno.land/x/denops_test@v1.4.0/mod.ts";
-import { assertEquals } from "https://deno.land/std@0.192.0/testing/asserts.ts";
+import {
+  assertEquals,
+  assertRejects,
+} from "https://deno.land/std@0.192.0/testing/asserts.ts";
 import type { Denops } from "https://deno.land/x/denops_std@v5.0.1/mod.ts";
 import * as vimOptions from "https://deno.land/x/denops_std@v5.0.1/option/mod.ts";
 import * as vimVars from "https://deno.land/x/denops_std@v5.0.1/variable/mod.ts";
@@ -92,6 +95,40 @@ test({
     await vimVars.g.set(denops, "detect_indent#detect_once", true);
 
     assertEquals(await isDetectable(denops), false);
+  },
+});
+
+test({
+  mode: "all",
+  name:
+    "isDetectable() throws an error if g:detect_indent#ignore_filetypes is not `null` nor `string[]`",
+  async fn(denops: Denops) {
+    await vimOptions.filetype.set(denops, "vim");
+    await vimOptions.buftype.set(denops, "");
+    assertEquals(await bufferCache.get(denops), null);
+
+    await vimVars.g.set(denops, "detect_indent#ignore_filetypes", [42]);
+    await vimVars.g.set(denops, "detect_indent#ignore_buftypes", ["nofile"]);
+    await vimVars.g.set(denops, "detect_indent#detect_once", true);
+
+    await assertRejects(async () => await isDetectable(denops));
+  },
+});
+
+test({
+  mode: "all",
+  name:
+    "isDetectable() throws an error if g:detect_indent#ignore_buftypes is not `null` nor `string[]`",
+  async fn(denops: Denops) {
+    await vimOptions.filetype.set(denops, "vim");
+    await vimOptions.buftype.set(denops, "");
+    assertEquals(await bufferCache.get(denops), null);
+
+    await vimVars.g.set(denops, "detect_indent#ignore_buftypes", ["txt"]);
+    await vimVars.g.set(denops, "detect_indent#ignore_buftypes", [42]);
+    await vimVars.g.set(denops, "detect_indent#detect_once", true);
+
+    await assertRejects(async () => await isDetectable(denops));
   },
 });
 

@@ -1,15 +1,19 @@
 import type { Denops } from "https://deno.land/x/denops_std@v5.0.1/mod.ts";
 import * as vimOptions from "https://deno.land/x/denops_std@v5.0.1/option/mod.ts";
+import { is } from "https://deno.land/x/unknownutil@v3.2.0/mod.ts";
 import * as logger from "./logger.ts";
 import { isEmptyObject } from "./util.ts";
 
+export type OptionsAsNonExpandtab = { expandtab: false };
+export type OptionsAsExpandtab = {
+  expandtab: true;
+  shiftwidth: Awaited<ReturnType<typeof vimOptions.shiftwidth["get"]>>;
+};
+export type OptionsAsEmpty = Record<string | number | symbol, never>;
 export type Options =
-  | { expandtab: false }
-  | {
-    expandtab: true;
-    shiftwidth: Awaited<ReturnType<typeof vimOptions.shiftwidth["get"]>>;
-  }
-  | Record<never, never>;
+  | OptionsAsNonExpandtab
+  | OptionsAsExpandtab
+  | OptionsAsEmpty;
 
 export async function set(denops: Denops, options: Options): Promise<void> {
   if (isEmptyObject(options)) {
@@ -41,5 +45,27 @@ export async function set(denops: Denops, options: Options): Promise<void> {
 
   if (reallyChanged) {
     await logger.info(denops, ...["Executed:", "setlocal", ...changes]);
+  }
+}
+
+export function isOptions(maybeOptions: unknown): maybeOptions is Options {
+  if (!is.Record(maybeOptions)) {
+    return false;
+  }
+
+  if (isEmptyObject(maybeOptions)) {
+    return true;
+  }
+
+  if ("expandtab" in maybeOptions) {
+    if (maybeOptions.expandtab === true) {
+      return "shiftwidth" in maybeOptions && is.Number(maybeOptions.shiftwidth);
+    } else if (maybeOptions.expandtab === false) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
   }
 }

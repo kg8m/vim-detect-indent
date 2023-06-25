@@ -7,7 +7,7 @@ import {
 import type { Denops } from "https://deno.land/x/denops_std@v5.0.1/mod.ts";
 import * as vimFuncs from "https://deno.land/x/denops_std@v5.0.1/function/mod.ts";
 import * as vimOptions from "https://deno.land/x/denops_std@v5.0.1/option/mod.ts";
-import { assertString } from "https://deno.land/x/unknownutil@v3.2.0/mod.ts";
+import { assert, is } from "https://deno.land/x/unknownutil@v3.2.0/mod.ts";
 import * as bufferCache from "../../../denops/detect-indent/buffer-cache.ts";
 import { restore } from "../../../denops/detect-indent/restore.ts";
 
@@ -48,7 +48,7 @@ test({
     assertEquals(await vimOptions.shiftwidth.get(denops), 2);
 
     const messages = await vimFuncs.execute(denops, "messages");
-    assertString(messages);
+    assert(messages, is.String);
     assertMatch(
       messages,
       /\n\[detect-indent\] Indentation previously not detected\/set yet\./,
