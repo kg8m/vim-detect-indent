@@ -15,6 +15,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: denoland/setup-deno@v1
+      - name: Generate token
+        id: generate_token
+        uses: getsentry/action-github-app-token@v2
+        with:
+          app_id: ${{ secrets.KG8M_BOT_APP_ID }}
+          private_key: ${{ secrets.KG8M_BOT_PRIVATE_KEY }}
       - name: Update Dependencies
         run: make update-deps > ../output.txt
         env:
@@ -28,10 +34,10 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          # Use my personal access token because the default `GITHUB_TOKEN` prevents other workflows from being
+          # Use my GitHub app’s temporary token because the default `GITHUB_TOKEN` prevents other workflows from being
           # triggered on a pull request creation.
           # cf. https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow
-          token: ${{ secrets.UDD_TOKEN }}
+          token: ${{ steps.generate_token.outputs.token }}
 
           commit-message: |
             Update Deno dependencies
