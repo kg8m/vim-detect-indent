@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.196.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.197.0/testing/asserts.ts";
 import { isEmptyObject } from "../../../denops/detect-indent/util.ts";
 
 Deno.test({
