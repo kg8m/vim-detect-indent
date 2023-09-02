@@ -2,7 +2,7 @@
 [![Vim 9.0.1499+](https://img.shields.io/badge/Vim-Support%209.0.1499%2B-yellowgreen.svg?logo=vim)](https://github.com/vim/vim/tree/v9.0.1499)
 [![Neovim 0.8.0+](https://img.shields.io/badge/Neovim-Support%200.8.0-yellowgreen.svg?logo=neovim&logoColor=white)](https://github.com/neovim/neovim/tree/v0.8.0)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![test](https://github.com/kg8m/vim-detect-indent/actions/workflows/test.yml/badge.svg)](https://github.com/kg8m/vim-detect-indent/actions/workflows/test.yml)
+[![test](https://github.com/kg8m/vim-detect-indent/actions/workflows/checks.yml/badge.svg)](https://github.com/kg8m/vim-detect-indent/actions/workflows/checks.yml)
 
 # vim-detect-indent
 
