@@ -27,7 +27,7 @@ jobs:
       Other checks --
       Deno ${{ matrix.deno-version }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         timeout-minutes: 1
       - uses: denoland/setup-deno@v1
         with:
@@ -79,11 +79,11 @@ jobs:
       - run: git config --global core.autocrlf false
         if: runner.os == 'Windows'
         timeout-minutes: 1
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           path: ./repo
         timeout-minutes: 1
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           repository: vim-denops/denops.vim
           path: ./denops.vim
