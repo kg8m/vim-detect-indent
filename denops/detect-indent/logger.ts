@@ -1,6 +1,6 @@
-import type { Denops } from "https://deno.land/x/denops_std@v5.0.1/mod.ts";
-import { batch } from "https://deno.land/x/denops_std@v5.0.1/batch/mod.ts";
-import * as vimVars from "https://deno.land/x/denops_std@v5.0.1/variable/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v5.0.2/mod.ts";
+import { batch } from "https://deno.land/x/denops_std@v5.0.2/batch/mod.ts";
+import * as vimVars from "https://deno.land/x/denops_std@v5.0.2/variable/mod.ts";
 
 const HIGHLIGHT_GROUPS_MAP = {
   debug: "Debug",
