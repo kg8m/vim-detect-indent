@@ -4,9 +4,9 @@ import {
   assertEquals,
   assertNotEquals,
 } from "https://deno.land/std@0.208.0/testing/asserts.ts";
-import type { Denops } from "https://deno.land/x/denops_std@v5.0.2/mod.ts";
-import * as vimFuncs from "https://deno.land/x/denops_std@v5.0.2/function/mod.ts";
-import * as vimOptions from "https://deno.land/x/denops_std@v5.0.2/option/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v5.1.0/mod.ts";
+import * as vimFuncs from "https://deno.land/x/denops_std@v5.1.0/function/mod.ts";
+import * as vimOptions from "https://deno.land/x/denops_std@v5.1.0/option/mod.ts";
 import * as bufferCache from "../../../denops/detect-indent/buffer-cache.ts";
 import { detect } from "../../../denops/detect-indent/detect.ts";
 import * as testHelper from "../test-helper.ts";
