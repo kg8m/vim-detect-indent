@@ -66,8 +66,8 @@ jobs:
         host-version:
           - vim: v9.0.1499
             nvim: v0.8.0
-          - vim: head
-            nvim: head
+          - vim: nightly
+            nvim: nightly
     runs-on: ${{ matrix.runner }}
     name: >-
       Test --
@@ -102,31 +102,31 @@ jobs:
             ${{ runner.os }}--deno-${{ matrix.deno-version }}--
             ${{ runner.os }}--
         timeout-minutes: 1
-      - uses: thinca/action-setup-vim@v1
+      - uses: rhysd/action-setup-vim@v1
         id: vim
         with:
-          vim_type: vim
-          vim_version: ${{ matrix.host-version.vim }}
+          neovim: false
+          version: ${{ matrix.host-version.vim }}
         timeout-minutes: 10
       - name: Check Vim
         run: |
           echo "${DENOPS_TEST_VIM}"
           "${DENOPS_TEST_VIM}" --version
         env:
-          DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable_path }}
+          DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable }}
         timeout-minutes: 1
-      - uses: thinca/action-setup-vim@v1
+      - uses: rhysd/action-setup-vim@v1
         id: nvim
         with:
-          vim_type: neovim
-          vim_version: ${{ matrix.host-version.nvim }}
+          neovim: true
+          version: ${{ matrix.host-version.nvim }}
         timeout-minutes: 10
       - name: Check Neovim
         run: |
           echo "${DENOPS_TEST_NVIM}"
           "${DENOPS_TEST_NVIM}" --version
         env:
-          DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable_path }}
+          DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable }}
         timeout-minutes: 1
       - name: Run deno tests
         uses: nick-fields/retry@v2
@@ -139,6 +139,6 @@ jobs:
         env:
           DENO_DIR: ../.deno
           DENOPS_TEST_DENOPS_PATH: ../denops.vim
-          DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable_path }}
-          DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable_path }}
+          DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable }}
+          DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable }}
         timeout-minutes: 10
