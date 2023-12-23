@@ -3,7 +3,7 @@ import { test } from "https://deno.land/x/denops_test@v1.4.0/mod.ts";
 import {
   assertMatch,
   assertNotMatch,
-} from "https://deno.land/std@0.209.0/testing/asserts.ts";
+} from "https://deno.land/std@0.210.0/testing/asserts.ts";
 import type { Denops } from "https://deno.land/x/denops_std@v5.2.0/mod.ts";
 import * as vimFuncs from "https://deno.land/x/denops_std@v5.2.0/function/mod.ts";
 import * as vimVars from "https://deno.land/x/denops_std@v5.2.0/variable/mod.ts";
