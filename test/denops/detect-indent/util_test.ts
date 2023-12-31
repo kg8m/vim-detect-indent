@@ -9,7 +9,7 @@ Deno.test({
 });
 
 Deno.test({
-  name: "isEmptyObject() returns `false` when the argument object has conents",
+  name: "isEmptyObject() returns `false` when the argument object has contents",
   fn() {
     assertEquals(isEmptyObject({ foo: 1 }), false);
   },
