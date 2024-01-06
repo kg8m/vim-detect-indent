@@ -1,9 +1,9 @@
 // Use denops' test() instead of built-in Deno.test()
-import { test } from "https://deno.land/x/denops_test@v1.4.0/mod.ts";
+import { test } from "https://deno.land/x/denops_test@v1.6.0/mod.ts";
 import {
   assertEquals,
   assertRejects,
-} from "https://deno.land/std@0.210.0/testing/asserts.ts";
+} from "https://deno.land/std@0.211.0/testing/asserts.ts";
 import type { Denops } from "https://deno.land/x/denops_std@v5.2.0/mod.ts";
 import * as vimOptions from "https://deno.land/x/denops_std@v5.2.0/option/mod.ts";
 import * as vimVars from "https://deno.land/x/denops_std@v5.2.0/variable/mod.ts";
