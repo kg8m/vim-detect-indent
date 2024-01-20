@@ -4,10 +4,10 @@ import {
   assertEquals,
   assertMatch,
 } from "https://deno.land/std@0.212.0/testing/asserts.ts";
-import type { Denops } from "https://deno.land/x/denops_std@v5.2.0/mod.ts";
-import * as vimFuncs from "https://deno.land/x/denops_std@v5.2.0/function/mod.ts";
-import * as vimOptions from "https://deno.land/x/denops_std@v5.2.0/option/mod.ts";
-import { assert, is } from "https://deno.land/x/unknownutil@v3.13.0/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v5.3.0/mod.ts";
+import * as vimFuncs from "https://deno.land/x/denops_std@v5.3.0/function/mod.ts";
+import * as vimOptions from "https://deno.land/x/denops_std@v5.3.0/option/mod.ts";
+import { assert, is } from "https://deno.land/x/unknownutil@v3.14.1/mod.ts";
 import * as bufferCache from "../../../denops/detect-indent/buffer-cache.ts";
 import { restore } from "../../../denops/detect-indent/restore.ts";
 
