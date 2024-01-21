@@ -5,9 +5,9 @@ import {
   assertRejects,
 } from "https://deno.land/std@0.212.0/testing/asserts.ts";
 import { assertType } from "https://deno.land/std@0.212.0/testing/types.ts";
-import type { Denops } from "https://deno.land/x/denops_std@v5.2.0/mod.ts";
-import * as vimOptions from "https://deno.land/x/denops_std@v5.2.0/option/mod.ts";
-import * as vimVars from "https://deno.land/x/denops_std@v5.2.0/variable/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v5.3.0/mod.ts";
+import * as vimOptions from "https://deno.land/x/denops_std@v5.3.0/option/mod.ts";
+import * as vimVars from "https://deno.land/x/denops_std@v5.3.0/variable/mod.ts";
 import type { Cache } from "../../../denops/detect-indent/buffer-cache.ts";
 import {
   get as getBufferCache,
