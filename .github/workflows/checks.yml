@@ -129,7 +129,7 @@ jobs:
           DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable }}
         timeout-minutes: 1
       - name: Run deno tests
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_minutes: 3
           max_attempts: 3
