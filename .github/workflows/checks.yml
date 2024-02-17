@@ -102,7 +102,7 @@ jobs:
             ${{ runner.os }}--deno-${{ matrix.deno-version }}--
             ${{ runner.os }}--
         timeout-minutes: 1
-      - uses: rhysd/action-setup-vim@v1.3.0
+      - uses: rhysd/action-setup-vim@v1.3.1
         id: vim
         with:
           neovim: false
@@ -115,7 +115,7 @@ jobs:
         env:
           DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable }}
         timeout-minutes: 1
-      - uses: rhysd/action-setup-vim@v1.3.0
+      - uses: rhysd/action-setup-vim@v1.3.1
         id: nvim
         with:
           neovim: true
