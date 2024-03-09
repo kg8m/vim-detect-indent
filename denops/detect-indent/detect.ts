@@ -1,4 +1,4 @@
-import type { Denops } from "https://deno.land/x/denops_std@v6.0.1/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v6.3.0/mod.ts";
 import { isDetectable } from "./detectable.ts";
 import { calculate } from "./calculate.ts";
 import * as options from "./options.ts";
