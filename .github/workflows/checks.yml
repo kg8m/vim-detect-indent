@@ -33,7 +33,7 @@ jobs:
         with:
           deno-version: ${{ matrix.deno-version }}
         timeout-minutes: 1
-      - uses: actions/cache@v4.0.0
+      - uses: actions/cache@v4.0.1
         with:
           path: .deno
           key: ${{ runner.os }}--deno-${{ matrix.deno-version }}--${{ hashFiles('**/*.ts') }}
@@ -92,7 +92,7 @@ jobs:
         with:
           deno-version: ${{ matrix.deno-version }}
         timeout-minutes: 1
-      - uses: actions/cache@v4.0.0
+      - uses: actions/cache@v4.0.1
         with:
           path: .deno
           key: ${{ runner.os }}--deno-${{ matrix.deno-version }}--vim-${{ matrix.host-version.vim }}--nvim-${{ matrix.host-version.nvim }}--${{ hashFiles('**/*.ts') }}
