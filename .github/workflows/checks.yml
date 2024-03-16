@@ -27,13 +27,13 @@ jobs:
       Other checks --
       Deno ${{ matrix.deno-version }}
     steps:
-      - uses: actions/checkout@v4.1.2
+      - uses: actions/checkout@v4
         timeout-minutes: 1
-      - uses: denoland/setup-deno@v1.1.4
+      - uses: denoland/setup-deno@v1
         with:
           deno-version: ${{ matrix.deno-version }}
         timeout-minutes: 1
-      - uses: actions/cache@v4.0.1
+      - uses: actions/cache@v4
         with:
           path: .deno
           key: ${{ runner.os }}--deno-${{ matrix.deno-version }}--${{ hashFiles('**/*.ts') }}
@@ -79,20 +79,20 @@ jobs:
       - run: git config --global core.autocrlf false
         if: runner.os == 'Windows'
         timeout-minutes: 1
-      - uses: actions/checkout@v4.1.2
+      - uses: actions/checkout@v4
         with:
           path: ./repo
         timeout-minutes: 1
-      - uses: actions/checkout@v4.1.2
+      - uses: actions/checkout@v4
         with:
           repository: vim-denops/denops.vim
           path: ./denops.vim
         timeout-minutes: 1
-      - uses: denoland/setup-deno@v1.1.4
+      - uses: denoland/setup-deno@v1
         with:
           deno-version: ${{ matrix.deno-version }}
         timeout-minutes: 1
-      - uses: actions/cache@v4.0.1
+      - uses: actions/cache@v4
         with:
           path: .deno
           key: ${{ runner.os }}--deno-${{ matrix.deno-version }}--vim-${{ matrix.host-version.vim }}--nvim-${{ matrix.host-version.nvim }}--${{ hashFiles('**/*.ts') }}
@@ -102,7 +102,7 @@ jobs:
             ${{ runner.os }}--deno-${{ matrix.deno-version }}--
             ${{ runner.os }}--
         timeout-minutes: 1
-      - uses: rhysd/action-setup-vim@v1.3.1
+      - uses: rhysd/action-setup-vim@v1
         id: vim
         with:
           neovim: false
@@ -115,7 +115,7 @@ jobs:
         env:
           DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable }}
         timeout-minutes: 1
-      - uses: rhysd/action-setup-vim@v1.3.1
+      - uses: rhysd/action-setup-vim@v1
         id: nvim
         with:
           neovim: true
@@ -129,7 +129,7 @@ jobs:
           DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable }}
         timeout-minutes: 1
       - name: Run deno tests
-        uses: nick-fields/retry@v3.0.0
+        uses: nick-fields/retry@v3
         with:
           timeout_minutes: 3
           max_attempts: 3
