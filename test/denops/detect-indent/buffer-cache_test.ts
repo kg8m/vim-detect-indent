@@ -1,13 +1,13 @@
 // Use denops' test() instead of built-in Deno.test()
-import { test } from "https://deno.land/x/denops_test@v1.6.2/mod.ts";
+import { test } from "https://deno.land/x/denops_test@v1.8.0/mod.ts";
 import {
   assertEquals,
   assertRejects,
 } from "https://deno.land/std@0.224.0/testing/asserts.ts";
 import { assertType } from "https://deno.land/std@0.224.0/testing/types.ts";
-import type { Denops } from "https://deno.land/x/denops_std@v6.4.2/mod.ts";
-import * as vimOptions from "https://deno.land/x/denops_std@v6.4.2/option/mod.ts";
-import * as vimVars from "https://deno.land/x/denops_std@v6.4.2/variable/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v6.5.0/mod.ts";
+import * as vimOptions from "https://deno.land/x/denops_std@v6.5.0/option/mod.ts";
+import * as vimVars from "https://deno.land/x/denops_std@v6.5.0/variable/mod.ts";
 import type { Cache } from "../../../denops/detect-indent/buffer-cache.ts";
 import {
   get as getBufferCache,

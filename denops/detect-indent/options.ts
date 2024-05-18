@@ -1,6 +1,6 @@
-import type { Denops } from "https://deno.land/x/denops_std@v6.4.2/mod.ts";
-import * as vimOptions from "https://deno.land/x/denops_std@v6.4.2/option/mod.ts";
-import { is } from "https://deno.land/x/unknownutil@v3.18.0/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v6.5.0/mod.ts";
+import * as vimOptions from "https://deno.land/x/denops_std@v6.5.0/option/mod.ts";
+import { is } from "https://deno.land/x/unknownutil@v3.18.1/mod.ts";
 import * as logger from "./logger.ts";
 import { isEmptyObject } from "./util.ts";
 
