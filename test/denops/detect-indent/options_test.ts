@@ -2,8 +2,8 @@
 import { test } from "https://deno.land/x/denops_test@v1.8.0/mod.ts";
 import { assertEquals } from "https://deno.land/std@0.224.0/testing/asserts.ts";
 import { assertType } from "https://deno.land/std@0.224.0/testing/types.ts";
-import type { Denops } from "https://deno.land/x/denops_std@v6.5.0/mod.ts";
-import * as vimOptions from "https://deno.land/x/denops_std@v6.5.0/option/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v6.5.1/mod.ts";
+import * as vimOptions from "https://deno.land/x/denops_std@v6.5.1/option/mod.ts";
 import type {
   Options,
   OptionsAsEmpty,
