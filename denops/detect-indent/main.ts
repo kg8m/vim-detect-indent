@@ -1,4 +1,4 @@
-import type { Entrypoint } from "https://deno.land/x/denops_std@v6.5.1/mod.ts";
+import type { Entrypoint } from "jsr:@denops/std@7.0.1";
 import { detect } from "./detect.ts";
 import { restore } from "./restore.ts";
 

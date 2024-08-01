@@ -1,9 +1,9 @@
-import type { Denops } from "https://deno.land/x/denops_std@v6.5.1/mod.ts";
-import { collect } from "https://deno.land/x/denops_std@v6.5.1/batch/mod.ts";
-import * as vimOptions from "https://deno.land/x/denops_std@v6.5.1/option/mod.ts";
-import * as vimVars from "https://deno.land/x/denops_std@v6.5.1/variable/mod.ts";
-import type { Predicate } from "https://deno.land/x/unknownutil@v3.18.1/mod.ts";
-import { assert, is } from "https://deno.land/x/unknownutil@v3.18.1/mod.ts";
+import type { Denops } from "jsr:@denops/std@7.0.1";
+import { collect } from "jsr:@denops/std@7.0.1/batch";
+import * as vimOptions from "jsr:@denops/std@7.0.1/option";
+import * as vimVars from "jsr:@denops/std@7.0.1/variable";
+import type { Predicate } from "jsr:@core/unknownutil@3.18.1";
+import { assert, is } from "jsr:@core/unknownutil@3.18.1";
 import * as bufferCache from "./buffer-cache.ts";
 
 export async function isDetectable(denops: Denops): Promise<boolean> {
