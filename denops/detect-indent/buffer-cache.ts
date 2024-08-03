@@ -1,7 +1,7 @@
-import type { Denops } from "jsr:@denops/std@7.0.1";
-import * as vimOptions from "jsr:@denops/std@7.0.1/option";
-import * as vimVars from "jsr:@denops/std@7.0.1/variable";
-import { assert, is } from "jsr:@core/unknownutil@3.18.1";
+import type { Denops } from "jsr:@denops/std@7.0.2";
+import * as vimOptions from "jsr:@denops/std@7.0.2/option";
+import * as vimVars from "jsr:@denops/std@7.0.2/variable";
+import { assert, is } from "jsr:@core/unknownutil@4.0.0";
 import type { Options } from "./options.ts";
 import { isOptions } from "./options.ts";
 

@@ -1,4 +1,4 @@
-import type { Denops } from "jsr:@denops/std@7.0.1";
+import type { Denops } from "jsr:@denops/std@7.0.2";
 import { isDetectable } from "./detectable.ts";
 import { calculate } from "./calculate.ts";
 import * as options from "./options.ts";

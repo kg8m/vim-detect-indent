@@ -1,4 +1,4 @@
-import type { Denops } from "jsr:@denops/std@7.0.1";
+import type { Denops } from "jsr:@denops/std@7.0.2";
 import * as bufferCache from "./buffer-cache.ts";
 import * as options from "./options.ts";
 import * as logger from "./logger.ts";

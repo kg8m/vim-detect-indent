@@ -1,6 +1,6 @@
-import type { Denops } from "jsr:@denops/std@7.0.1";
-import { batch } from "jsr:@denops/std@7.0.1/batch";
-import * as vimVars from "jsr:@denops/std@7.0.1/variable";
+import type { Denops } from "jsr:@denops/std@7.0.2";
+import { batch } from "jsr:@denops/std@7.0.2/batch";
+import * as vimVars from "jsr:@denops/std@7.0.2/variable";
 
 const HIGHLIGHT_GROUPS_MAP = {
   debug: "Debug",

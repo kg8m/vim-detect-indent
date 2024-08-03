@@ -1,5 +1,5 @@
-import type { Denops } from "jsr:@denops/std@7.0.1";
-import * as vimFuncs from "jsr:@denops/std@7.0.1/function";
+import type { Denops } from "jsr:@denops/std@7.0.2";
+import * as vimFuncs from "jsr:@denops/std@7.0.2/function";
 import type { Options } from "./options.ts";
 import * as logger from "./logger.ts";
 import { isEmptyObject } from "./util.ts";
