@@ -1,4 +1,4 @@
-import * as path from "jsr:@std/path@1.0.2";
+import * as path from "jsr:@std/path@^1.0.2";
 
 export const root = {
   toString(): string {

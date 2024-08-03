@@ -1,4 +1,4 @@
-import type { Entrypoint } from "jsr:@denops/std@7.0.2";
+import type { Entrypoint } from "jsr:@denops/std@^7.0.2";
 import { detect } from "./detect.ts";
 import { restore } from "./restore.ts";
 

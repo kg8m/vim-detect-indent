@@ -1,9 +1,9 @@
 // Use denops' test() instead of built-in Deno.test()
-import { test } from "jsr:@denops/test@3.0.2";
-import { assertEquals } from "jsr:@std/assert@1.0.2";
-import { assertType } from "jsr:@std/testing@1.0.0/types";
-import type { Denops } from "jsr:@denops/std@7.0.2";
-import * as vimOptions from "jsr:@denops/std@7.0.2/option";
+import { test } from "jsr:@denops/test@^3.0.2";
+import { assertEquals } from "jsr:@std/assert@^1.0.2";
+import { assertType } from "jsr:@std/testing@^1.0.0/types";
+import type { Denops } from "jsr:@denops/std@^7.0.2";
+import * as vimOptions from "jsr:@denops/std@^7.0.2/option";
 import type {
   Options,
   OptionsAsEmpty,
