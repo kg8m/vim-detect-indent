@@ -57,7 +57,8 @@ test({
   },
 });
 
-Deno.test({
+test({
+  mode: "all",
   name: "isOptions() returns true if the argument is a Options",
   fn() {
     const nonExpandtabOptions: OptionsAsNonExpandtab = { expandtab: false };
@@ -77,7 +78,8 @@ Deno.test({
   },
 });
 
-Deno.test({
+test({
+  mode: "all",
   name: "isOptions() returns false unless the argument is a Options",
   fn() {
     const withOnlyUnknownKeys = { foo: 42 };

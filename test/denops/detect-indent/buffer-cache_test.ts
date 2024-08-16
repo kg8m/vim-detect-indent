@@ -52,7 +52,8 @@ test({
   },
 });
 
-Deno.test({
+test({
+  mode: "all",
   name: "isCache() returns true if the argument is a Cache",
   fn() {
     const cache = { prev: {} };
@@ -65,7 +66,8 @@ Deno.test({
   },
 });
 
-Deno.test({
+test({
+  mode: "all",
   name: "isCache() returns false unless the argument is a Cache",
   fn() {
     const empty = {};
