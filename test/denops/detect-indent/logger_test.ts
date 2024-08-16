@@ -1,4 +1,4 @@
-// Use denops' test() instead of built-in Deno.test()
+// Use denops’ test() instead of built-in Deno.test()
 import { test } from "jsr:@denops/test@^3.0.2";
 import { assertMatch, assertNotMatch } from "jsr:@std/assert@^1.0.2";
 import type { Denops } from "jsr:@denops/std@^7.0.2";
@@ -60,7 +60,7 @@ test({
 test({
   mode: "all",
   name:
-    "logger.info() doesn't execute `:echomsg` with plugin name prefix if `g:detect_indent#silence_information` is `1`",
+    "logger.info() doesn’t execute `:echomsg` with plugin name prefix if `g:detect_indent#silence_information` is `1`",
   async fn(denops: Denops) {
     for (const varValue of [1, true]) {
       await vimVars.g.set(
@@ -118,7 +118,7 @@ test({
 test({
   mode: "all",
   name:
-    "logger.warn() doesn't execute `:echomsg` with plugin name prefix if `g:detect_indent#silence_warnings` is `1`",
+    "logger.warn() doesn’t execute `:echomsg` with plugin name prefix if `g:detect_indent#silence_warnings` is `1`",
   async fn(denops: Denops) {
     for (const varValue of [1, true]) {
       await vimVars.g.set(

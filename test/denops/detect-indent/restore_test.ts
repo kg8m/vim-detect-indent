@@ -1,4 +1,4 @@
-// Use denops' test() instead of built-in Deno.test()
+// Use denops’ test() instead of built-in Deno.test()
 import { test } from "jsr:@denops/test@^3.0.2";
 import { assertEquals, assertMatch } from "jsr:@std/assert@^1.0.2";
 import type { Denops } from "jsr:@denops/std@^7.0.2";
@@ -31,7 +31,7 @@ test({
 
 test({
   mode: "all",
-  name: "restore() does nothing and warns when the buffer cache doesn't exist",
+  name: "restore() does nothing and warns when the buffer cache doesn’t exist",
   async fn(denops: Denops) {
     assertEquals(await bufferCache.get(denops), null);
     await vimOptions.expandtab.set(denops, true);

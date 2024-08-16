@@ -28,8 +28,8 @@ There are great existing similar plugins. For example:
 vim-detect-indent uses simpler algorithm: what majority of indented lines are
 indented with. If indented with the hard tab, `noexpandtab` will be set. If
 indented with spaces, `expandtab` and `shiftwidth={n}` will be set.
-vim-detect-indent's behavior is easy to expect due to its simple algorithm.
-vim-detect-indent doesn't cover all indentation cases but aims to work nice in
+vim-detect-indent’s behavior is easy to expect due to its simple algorithm.
+vim-detect-indent doesn’t cover all indentation cases but aims to work nice in
 many common cases.
 
 ## Installation
@@ -53,4 +53,4 @@ Plug 'kg8m/vim-detect-indent'
 - Vim or Neovim
 
 Supported version of Deno, Vim, and Neovim depends on denops.vim. Please see
-[denops.vim's README](https://github.com/vim-denops/denops.vim#readme).
+[denops.vim’s README](https://github.com/vim-denops/denops.vim#readme).
