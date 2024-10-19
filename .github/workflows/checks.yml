@@ -21,8 +21,7 @@ jobs:
           - ubuntu-latest
         deno-version:
           - 1.45.0
-          - 1.x
-          - 2.x
+          - x.x.x
     runs-on: ${{ matrix.runner }}
     name: >-
       Other checks --
@@ -63,8 +62,7 @@ jobs:
           - ubuntu-latest
         deno-version:
           - 1.45.0
-          - 1.x
-          - 2.x
+          - x.x.x
         host-version:
           - vim: v9.0.1499
             nvim: v0.8.0
