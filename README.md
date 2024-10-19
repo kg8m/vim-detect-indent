@@ -25,12 +25,12 @@ There are great existing similar plugins. For example:
 - [vim-sleuth](https://github.com/tpope/vim-sleuth)
 - [detectindent](https://github.com/ciaranm/detectindent)
 
-vim-detect-indent uses simpler algorithm: what majority of indented lines are
-indented with. If indented with the hard tab, `noexpandtab` will be set. If
-indented with spaces, `expandtab` and `shiftwidth={n}` will be set.
-vim-detect-indent’s behavior is easy to expect due to its simple algorithm.
-vim-detect-indent doesn’t cover all indentation cases but aims to work nice in
-many common cases.
+vim-detect-indent uses a simpler algorithm: it determines indentation based on
+the majority of indented lines. If lines are indented with hard tabs,
+`noexpandtab` will be set. If spaces are used, `expandtab` and `shiftwidth={n}`
+will be applied. vim-detect-indent’s behavior is predictable due to its
+straightforward algorithm. While it may not cover all indentation scenarios, it
+is designed to work well in many common cases.
 
 ## Installation
 
